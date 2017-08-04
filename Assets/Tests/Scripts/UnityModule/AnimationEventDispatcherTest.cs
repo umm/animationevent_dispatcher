@@ -11,24 +11,25 @@ namespace Tests.UnityModule {
     public class AnimationEventDispatcherTest {
 
         [UnityTest]
-        [Timeout(10000)]
         public IEnumerator OnDispatchAsObservableTest() {
             SceneManager.LoadScene("Tests/Scenes/Test");
             yield return new WaitForEndOfFrame();
-            yield return new WaitForSeconds(15.0f);
+            yield return new WaitForEndOfFrame();
             GameObject go = GameObject.Find("Test");
             AnimationEventDispatcher dispatcher = go.GetComponent<AnimationEventDispatcher>();
+            bool result = false;
             yield return dispatcher
                 .OnDispatchAsObservable("Test")
+                .Timeout(System.TimeSpan.FromSeconds(5))
                 .First()
                 .StartAsCoroutine(
                     (_) => {
-                        Assert.Pass();
+                        result = true;
                     },
                     (e) => {
                     }
                 );
-
+            Assert.IsTrue(result, "Dispatch されたかどうか");
         }
 
     }
