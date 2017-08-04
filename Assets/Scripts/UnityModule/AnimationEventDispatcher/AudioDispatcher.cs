@@ -19,6 +19,7 @@ namespace UnityModule.AnimationEventDispatcher {
             get {
                 if (this.audioSource == default(AudioSource)) {
                     this.audioSource = this.gameObject.GetOrAddComponent<AudioSource>();
+                    this.audioSource.playOnAwake = false;
                 }
                 return this.audioSource;
             }
