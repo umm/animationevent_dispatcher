@@ -4,7 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
-using UnityModule;
+using UnityModule.AnimationEventDispatcher;
 
 namespace Tests.UnityModule {
 
@@ -16,7 +16,7 @@ namespace Tests.UnityModule {
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             GameObject go = GameObject.Find("Test");
-            AnimationEventDispatcher dispatcher = go.GetComponent<AnimationEventDispatcher>();
+            GeneralDispatcher dispatcher = go.GetComponent<GeneralDispatcher>();
             bool result = false;
             yield return dispatcher
                 .OnDispatchAsObservable("Test")

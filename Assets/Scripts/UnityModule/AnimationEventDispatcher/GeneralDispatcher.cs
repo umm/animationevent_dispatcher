@@ -1,9 +1,9 @@
 ﻿using UniRx;
 using UnityEngine;
 
-namespace UnityModule {
+namespace UnityModule.AnimationEventDispatcher {
 
-    public class AnimationEventDispatcher : MonoBehaviour {
+    public class GeneralDispatcher : MonoBehaviour {
 
         /// <summary>
         /// AnimationEvent Dispatch 時に発火するストリームの実体
