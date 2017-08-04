@@ -1,16 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GameObjectExtension;
 using UnityEngine;
 
-public class AudioDispatcher : MonoBehaviour {
+namespace UnityModule.AnimationEventDispatcher {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public class AudioDispatcher : MonoBehaviour {
+
+        /// <summary>
+        /// AudioSource の実体
+        /// </summary>
+        private AudioSource audioSource;
+
+        /// <summary>
+        /// AudioSource
+        /// </summary>
+        private AudioSource AudioSource {
+            get {
+                if (this.audioSource == default(AudioSource)) {
+                    this.audioSource = this.gameObject.GetOrAddComponent<AudioSource>();
+                }
+                return this.audioSource;
+            }
+            set {
+                this.audioSource = value;
+            }
+        }
+
+    }
+
 }
