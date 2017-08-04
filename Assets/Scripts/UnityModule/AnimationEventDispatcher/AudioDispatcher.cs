@@ -27,6 +27,20 @@ namespace UnityModule.AnimationEventDispatcher {
             }
         }
 
+        public void Play(AudioClip audioClip) {
+            this.PlayInternal(audioClip, false);
+        }
+
+        public void PlayLoop(AudioClip audioClip) {
+            this.PlayInternal(audioClip, true);
+        }
+
+        private void PlayInternal(AudioClip audioClip, bool loop) {
+            this.AudioSource.clip = audioClip;
+            this.AudioSource.loop = loop;
+            this.AudioSource.Play();
+        }
+
     }
 
 }
