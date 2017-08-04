@@ -31,7 +31,7 @@ namespace UnityModule {
         /// </summary>
         /// <param name="animationEvent">Inspector で設定する情報を含んだ AnimationEvent</param>
         public void DispatchAnimationEvent(AnimationEvent animationEvent) {
-            this.streamAnimationEvent.OnNext(animationEvent);
+            this.StreamAnimationEvent.OnNext(animationEvent);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace UnityModule {
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
         public IObservable<AnimationEvent> OnDispatchAsObservable() {
-            return this.streamAnimationEvent.AsObservable();
+            return this.StreamAnimationEvent.AsObservable();
         }
 
         /// <summary>
