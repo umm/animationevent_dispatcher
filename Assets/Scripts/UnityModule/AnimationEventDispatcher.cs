@@ -30,7 +30,7 @@ namespace UnityModule {
         /// AnimationEvent を Dispatch する
         /// </summary>
         /// <param name="animationEvent">Inspector で設定する情報を含んだ AnimationEvent</param>
-        public void DispatchAnimationEvent(AnimationEvent animationEvent) {
+        public void Dispatch(AnimationEvent animationEvent) {
             this.StreamAnimationEvent.OnNext(animationEvent);
         }
 

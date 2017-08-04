@@ -256,7 +256,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.8333333
-    functionName: DispatchAnimationEvent
+    functionName: Dispatch
     data: Test
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
