@@ -38,3 +38,7 @@ Copyright (c) 2017 Tetsuya Mori
 
 Released under the MIT license, see [LICENSE.txt](LICENSE.txt)
 
+## Included Asset
+
+* テスト用の音声ファイル (`Assets/Tests/Sounds/Audio.mp3`) は [無料効果音素材](http://taira-komori.jpn.org/freesound.html) からダウンロードしております
+
