@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GameObjectExtension;
+﻿using GameObjectExtension;
 using UnityEngine;
 
 namespace UnityModule.AnimationEventDispatcher {
