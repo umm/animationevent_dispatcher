@@ -15,7 +15,7 @@ namespace Tests.UnityModule {
             SceneManager.LoadScene("Tests/Scenes/Test");
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
-            GameObject go = GameObject.Find("Test");
+            GameObject go = GameObject.Find("General");
             GeneralDispatcher dispatcher = go.GetComponent<GeneralDispatcher>();
             bool result = false;
             yield return dispatcher
