@@ -8,18 +8,18 @@ using UnityModule.AnimationEventDispatcher;
 
 namespace Tests.UnityModule {
 
-    public class GeneralDispatcherTest {
+    public class AudioDispatcherTest {
 
         [UnityTest]
         public IEnumerator OnDispatchAsObservableTest() {
             SceneManager.LoadScene("Tests/Scenes/Test");
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
-            GameObject go = GameObject.Find("General");
-            GeneralDispatcher dispatcher = go.GetComponent<GeneralDispatcher>();
+            GameObject go = GameObject.Find("Audio");
+            AudioDispatcher dispatcher = go.GetComponent<AudioDispatcher>();
             bool result = false;
             yield return dispatcher
-                .OnDispatchAsObservable("Test")
+                .OnDispatchAsObservable()
                 .Timeout(System.TimeSpan.FromSeconds(5))
                 .First()
                 .StartAsCoroutine(
