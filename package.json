@@ -1,6 +1,6 @@
 {
   "name": "@umm/animationevent_dispatcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dispatch AnimationEvent by Animation",
   "homepage": "https://github.com/umm-projects/animationevent_dispatcher",
   "bugs": {
