@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace UnityModule.AnimationEventDispatcher {
 
+    /// <summary>
+    /// 汎用ディスパッチャ
+    /// </summary>
     public class GeneralDispatcher : MonoBehaviour {
 
         /// <summary>
