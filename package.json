@@ -26,6 +26,8 @@
     "scripts"
   ],
   "dependencies": {
+    "@umm/gameobject_extension_component": "^1.1.4",
+    "@umm/unirx": "^5.5.4",
     "glob": "^7.1.2",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
