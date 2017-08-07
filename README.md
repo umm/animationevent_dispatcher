@@ -17,20 +17,36 @@ $ nom install @umm/animationevent_dispatcher
 
 # Usage
 
-## Animation 側
+## GeneralDispatcher
 
-* AnimatorController がアタッチされている GameObject に `AnimationEventDispatcher` をアタッチします
-* Animation の AnimationEvent の設定として `AnimationEventDispatcher.DispatchEvent()` を呼び出します
+### Animation 側
+
+* AnimatorController がアタッチされている GameObject に `GeneralDispatcher` をアタッチします
+* Animation の AnimationEvent の設定として `GeneralDispatcher.Dispatch()` を呼び出します
     * その際、1つ以上の `int`, `float`, `string`, `object` をパラメータとして渡せます
     * `string` を用いて「何の AnimationEvent なのか？」を渡すと見通しが良くなりそうです
 
-## Script 側
+### Script 側
 
-* `AnimationEventDispatcher.OnDispatchEventAsObservable()` が返す `IObservable<AnimationEvent>` を Subscribe します
-* `OnDispatchEventAsObservable()` *引数: なし* は全ての `DispatchEvent()` を流します
+* `GeneralDispatcher.OnDispatchAsObservable()` が返す `IObservable<AnimationEvent>` を Subscribe します
+* `OnDispatchAsObservable()` *引数: なし* は全ての `AnimationEvent` を流します
     * `.Where()` などでフィルタリングすることをオススメします
-* `OnDispatchEventAsObservable()` *引数: int, float, string, object* は引数に渡した値にマッチする `DispatchEvent()` を流します
+* `OnDispatchAsObservable()` *引数: int, float, string, object* は引数に渡した値にマッチする `AnimationEvent` を流します
     * 複合条件には対応していないので、複雑な条件を付ける場合は *引数なし* を呼んで、自分でストリームをフィルタしてください
+
+## AudioDispatcher
+
+### Animation 側
+
+* AnimatorController がアタッチされている GameObject に `AudioDispatcher` をアタッチします
+* Animation の AnimationEvent の設定として `AudioDispatcher.Play()` を呼び出します
+    * その際、 AudioClip をパラメータとして渡します
+* これで、当該 AnimationEvent を通過した瞬間にパラメータに渡した AudioClip が再生されます
+
+### Script 側
+
+* 「発音が始まった瞬間」を検知することができます
+* 検知する場合は `AudioDispatcher.OnDispatchAsObservable()` が返す `IObservable<AnimationEvent>` を Subscribe します
 
 # License
 
