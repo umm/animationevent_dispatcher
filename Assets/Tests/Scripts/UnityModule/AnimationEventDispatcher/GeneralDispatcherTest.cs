@@ -8,7 +8,7 @@ using UnityModule.AnimationEventDispatcher;
 
 namespace Tests.UnityModule {
 
-    public class AnimationEventDispatcherTest {
+    public class GeneralDispatcherTest {
 
         [UnityTest]
         public IEnumerator OnDispatchAsObservableTest() {
