@@ -6,28 +6,7 @@ namespace UnityModule.AnimationEventDispatcher {
     /// <summary>
     /// 汎用ディスパッチャ
     /// </summary>
-    public class GeneralDispatcher : MonoBehaviour {
-
-        /// <summary>
-        /// AnimationEvent Dispatch 時に発火するストリームの実体
-        /// </summary>
-        private Subject<AnimationEvent> streamAnimationEvent;
-
-        /// <summary>
-        /// AnimationEvent Dispatch 時に発火するストリーム
-        /// </summary>
-        /// <remarks>外から触られたくなかったので private にしています</remarks>
-        private Subject<AnimationEvent> StreamAnimationEvent {
-            get {
-                if (this.streamAnimationEvent == default(Subject<AnimationEvent>)) {
-                    this.streamAnimationEvent = new Subject<AnimationEvent>();
-                }
-                return this.streamAnimationEvent;
-            }
-            set {
-                this.streamAnimationEvent = value;
-            }
-        }
+    public class GeneralDispatcher : Base {
 
         /// <summary>
         /// AnimationEvent を Dispatch する
