@@ -10,6 +10,11 @@ namespace UnityModule.AnimationEventDispatcher {
     public class AudioDispatcher : Base {
 
         /// <summary>
+        /// AudioListener のセットアップが済んでいるかどうか
+        /// </summary>
+        private static bool hasSetAudioListener;
+
+        /// <summary>
         /// AudioSource の実体
         /// </summary>
         private AudioSource audioSource;
@@ -51,6 +56,9 @@ namespace UnityModule.AnimationEventDispatcher {
         /// </summary>
         /// <remarks>イベント発火ストリームを Subscribe する</remarks>
         private void Start() {
+            if (Application.isEditor) {
+                SetAudioListenerIfNeeded();
+            }
             this.StreamAnimationEvent
                 .Subscribe(
                     (animationEvent) => {
@@ -106,6 +114,22 @@ namespace UnityModule.AnimationEventDispatcher {
             this.AudioSource.clip = audioClip;
             this.AudioSource.loop = loop;
             this.AudioSource.Play();
+        }
+
+        /// <summary>
+        /// 必要に応じて AudioListener を追加する
+        /// </summary>
+        /// <remarks>シーン内に AudioListener が存在していない場合 Camera.main に AddComponent します</remarks>
+        /// <remarks>FindObjectOfType&lt;T&gt;() はそれなりに負荷の高い処理なので、1回しか実行されないようにフラグ管理しています</remarks>
+        private static void SetAudioListenerIfNeeded() {
+            if (hasSetAudioListener) {
+                return;
+            }
+            hasSetAudioListener = true;
+            AudioListener audioListener = FindObjectOfType<AudioListener>();
+            if (audioListener == default(AudioListener) && Camera.main != default(Camera)) {
+                Camera.main.gameObject.AddComponent<AudioListener>();
+            }
         }
 
     }
