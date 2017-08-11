@@ -26,16 +26,13 @@ namespace UnityModule.AnimationEventDispatcher {
                 }
                 return this.audioSource;
             }
-            set {
-                this.audioSource = value;
-            }
         }
 
         /// <summary>
         /// AnimationEvent の objectReferenceParameter にセットするオーディオ情報
         /// </summary>
-        /// <remarks>struct 的な役割だが、 Object 型じゃないとダメなので class にしている</remarks>
-        private class AudioInformation : Object {
+        /// <remarks>struct 的な役割だが、 ScriptableObject 型じゃないと objectReferenceParameter にセットできないので class にしている</remarks>
+        private class AudioInformation : ScriptableObject {
 
             /// <summary>
             /// AudioClip のインスタンス
@@ -72,13 +69,13 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <remarks>AnimationEvent として呼び出されることを想定している</remarks>
         /// <param name="audioClip">再生対象の AudioClip</param>
         public void Play(AudioClip audioClip) {
+            AudioInformation audioInformation = ScriptableObject.CreateInstance<AudioInformation>();
+            audioInformation.AudioClip = audioClip;
+            audioInformation.ShouldLoop = false;
             this.StreamAnimationEvent
                 .OnNext(
                     new AnimationEvent() {
-                        objectReferenceParameter = new AudioInformation() {
-                            AudioClip = audioClip,
-                            ShouldLoop = false,
-                        }
+                        objectReferenceParameter = audioInformation,
                     }
                 );
         }
@@ -89,13 +86,13 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <remarks>AnimationEvent として呼び出されることを想定している</remarks>
         /// <param name="audioClip">再生対象の AudioClip</param>
         public void PlayLoop(AudioClip audioClip) {
+            AudioInformation audioInformation = ScriptableObject.CreateInstance<AudioInformation>();
+            audioInformation.AudioClip = audioClip;
+            audioInformation.ShouldLoop = true;
             this.StreamAnimationEvent
                 .OnNext(
                     new AnimationEvent() {
-                        objectReferenceParameter = new AudioInformation() {
-                            AudioClip = audioClip,
-                            ShouldLoop = true,
-                        }
+                        objectReferenceParameter = audioInformation,
                     }
                 );
         }
