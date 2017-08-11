@@ -56,7 +56,9 @@ namespace UnityModule.AnimationEventDispatcher {
         /// </summary>
         /// <remarks>イベント発火ストリームを Subscribe する</remarks>
         private void Start() {
-            SetAudioListenerIfNeeded();
+            if (Application.isEditor) {
+                SetAudioListenerIfNeeded();
+            }
             this.StreamAnimationEvent
                 .Subscribe(
                     (animationEvent) => {
