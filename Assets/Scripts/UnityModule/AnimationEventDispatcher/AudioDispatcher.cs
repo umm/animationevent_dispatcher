@@ -1,4 +1,4 @@
-﻿using GameObjectExtension;
+﻿using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -15,21 +15,22 @@ namespace UnityModule.AnimationEventDispatcher {
         private static bool hasSetAudioListener;
 
         /// <summary>
-        /// AudioSource の実体
+        /// AudioClip をキーにした AudioSource の実体
         /// </summary>
-        private AudioSource audioSource;
+        private Dictionary<AudioClip, AudioSource> audioSourceMap;
 
         /// <summary>
-        /// AudioSource
+        /// AudioClip をキーにした AudioSource
         /// </summary>
-        private AudioSource AudioSource {
+        public Dictionary<AudioClip, AudioSource> AudioSourceMap {
             get {
-                if (this.audioSource == default(AudioSource)) {
-                    // AudioSource がアタッチされていない場合は AddComponent する
-                    this.audioSource = this.gameObject.GetOrAddComponent<AudioSource>();
-                    this.audioSource.playOnAwake = false;
+                if (this.audioSourceMap == default(Dictionary<AudioClip, AudioSource>)) {
+                    this.audioSourceMap = new Dictionary<AudioClip, AudioSource>();
                 }
-                return this.audioSource;
+                return this.audioSourceMap;
+            }
+            set {
+                this.audioSourceMap = value;
             }
         }
 
@@ -111,9 +112,13 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <param name="audioClip">再生対象の AudioClip</param>
         /// <param name="loop">ループ再生する場合は真</param>
         private void PlayInternal(AudioClip audioClip, bool loop) {
-            this.AudioSource.clip = audioClip;
-            this.AudioSource.loop = loop;
-            this.AudioSource.Play();
+            if (!this.AudioSourceMap.ContainsKey(audioClip)) {
+                this.AudioSourceMap[audioClip] = this.gameObject.AddComponent<AudioSource>();
+                this.AudioSourceMap[audioClip].playOnAwake = false;
+            }
+            this.AudioSourceMap[audioClip].clip = audioClip;
+            this.AudioSourceMap[audioClip].loop = loop;
+            this.AudioSourceMap[audioClip].Play();
         }
 
         /// <summary>
