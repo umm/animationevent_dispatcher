@@ -12,7 +12,7 @@
 # Install
 
 ```shell
-$ nom install @umm/animationevent_dispatcher
+$ npm install github:umm-projects/animationevent_dispatcher.git
 ```
 
 # Usage
