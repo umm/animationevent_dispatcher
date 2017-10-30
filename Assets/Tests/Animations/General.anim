@@ -103,7 +103,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0
-    functionName: DispatchBeginAnimation
+    functionName: DispatchBegin
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -117,7 +117,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1
-    functionName: DispatchEndAnimation
+    functionName: DispatchEnd
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

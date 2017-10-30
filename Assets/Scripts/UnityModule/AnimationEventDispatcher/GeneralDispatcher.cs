@@ -11,12 +11,12 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <summary>
         /// 汎用イベント名: アニメーション開始
         /// </summary>
-        private const string ANIMATION_EVENT_NAME_BEGIN_ANIMATION = "BeginAnimation";
+        private const string ANIMATION_EVENT_NAME_BEGIN = "Begin";
 
         /// <summary>
         /// 汎用イベント名: アニメーション終了
         /// </summary>
-        private const string ANIMATION_EVENT_NAME_END_ANIMATION = "EndAnimation";
+        private const string ANIMATION_EVENT_NAME_END = "End";
 
         /// <summary>
         /// AnimationEvent を Dispatch する
@@ -29,31 +29,31 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <summary>
         /// アニメーション開始を表す AnimationEvent を Dispatch する
         /// </summary>
-        public void DispatchBeginAnimation() {
-            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_BEGIN_ANIMATION});
+        public void DispatchBegin() {
+            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_BEGIN});
         }
 
         /// <summary>
         /// アニメーション終了を表す AnimationEvent を Dispatch する
         /// </summary>
-        public void DispatchEndAnimation() {
-            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_END_ANIMATION});
+        public void DispatchEnd() {
+            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_END});
         }
 
         /// <summary>
         /// Dispatch されたアニメーション開始を表す AnimationEvent を UniRx ストリームとして返す
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
-        public IObservable<AnimationEvent> OnDispatchBeginAnimation() {
-            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN_ANIMATION);
+        public IObservable<AnimationEvent> OnDispatchBegin() {
+            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN);
         }
 
         /// <summary>
         /// Dispatch されたアニメーション終了を表す AnimationEvent を UniRx ストリームとして返す
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
-        public IObservable<AnimationEvent> OnDispatchEndAnimation() {
-            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN_ANIMATION);
+        public IObservable<AnimationEvent> OnDispatchEnd() {
+            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN);
         }
 
     }

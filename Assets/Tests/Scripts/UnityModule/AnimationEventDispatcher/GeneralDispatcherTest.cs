@@ -32,7 +32,7 @@ namespace Tests.UnityModule {
             Assert.IsTrue(resultGeneral, "Dispatch されたかどうか");
             bool resultBegin = false;
             yield return dispatcher
-                .OnDispatchBeginAnimation()
+                .OnDispatchBegin()
                 .Timeout(System.TimeSpan.FromSeconds(5))
                 .First()
                 .StartAsCoroutine(
@@ -45,7 +45,7 @@ namespace Tests.UnityModule {
             Assert.IsTrue(resultBegin, "BeginAnimation が Dispatch されたかどうか");
             bool resultEnd = false;
             yield return dispatcher
-                .OnDispatchEndAnimation()
+                .OnDispatchEnd()
                 .Timeout(System.TimeSpan.FromSeconds(5))
                 .First()
                 .StartAsCoroutine(
