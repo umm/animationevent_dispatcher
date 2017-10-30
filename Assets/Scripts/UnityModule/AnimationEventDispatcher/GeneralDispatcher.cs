@@ -53,7 +53,7 @@ namespace UnityModule.AnimationEventDispatcher {
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
         public IObservable<AnimationEvent> OnDispatchEndAsObservable() {
-            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN);
+            return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_END);
         }
 
     }
