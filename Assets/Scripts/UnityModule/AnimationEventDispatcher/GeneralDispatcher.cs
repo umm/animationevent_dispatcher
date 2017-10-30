@@ -44,7 +44,7 @@ namespace UnityModule.AnimationEventDispatcher {
         /// Dispatch されたアニメーション開始を表す AnimationEvent を UniRx ストリームとして返す
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
-        public IObservable<AnimationEvent> OnDispatchBegin() {
+        public IObservable<AnimationEvent> OnDispatchBeginAsObservable() {
             return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN);
         }
 
@@ -52,7 +52,7 @@ namespace UnityModule.AnimationEventDispatcher {
         /// Dispatch されたアニメーション終了を表す AnimationEvent を UniRx ストリームとして返す
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
-        public IObservable<AnimationEvent> OnDispatchEnd() {
+        public IObservable<AnimationEvent> OnDispatchEndAsObservable() {
             return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_BEGIN);
         }
 
