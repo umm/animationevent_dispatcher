@@ -17,19 +17,45 @@ namespace Tests.UnityModule {
             yield return new WaitForEndOfFrame();
             GameObject go = GameObject.Find("General");
             GeneralDispatcher dispatcher = go.GetComponent<GeneralDispatcher>();
-            bool result = false;
+            bool resultGeneral = false;
             yield return dispatcher
                 .OnDispatchAsObservable("Test")
                 .Timeout(System.TimeSpan.FromSeconds(5))
                 .First()
                 .StartAsCoroutine(
                     (_) => {
-                        result = true;
+                        resultGeneral = true;
                     },
                     (e) => {
                     }
                 );
-            Assert.IsTrue(result, "Dispatch されたかどうか");
+            Assert.IsTrue(resultGeneral, "Dispatch されたかどうか");
+            bool resultBegin = false;
+            yield return dispatcher
+                .OnDispatchBeginAnimation()
+                .Timeout(System.TimeSpan.FromSeconds(5))
+                .First()
+                .StartAsCoroutine(
+                    (_) => {
+                        resultBegin = true;
+                    },
+                    (e) => {
+                    }
+                );
+            Assert.IsTrue(resultBegin, "BeginAnimation が Dispatch されたかどうか");
+            bool resultEnd = false;
+            yield return dispatcher
+                .OnDispatchEndAnimation()
+                .Timeout(System.TimeSpan.FromSeconds(5))
+                .First()
+                .StartAsCoroutine(
+                    (_) => {
+                        resultEnd = true;
+                    },
+                    (e) => {
+                    }
+                );
+            Assert.IsTrue(resultEnd, "EndAnimation が Dispatch されたかどうか");
         }
 
     }
