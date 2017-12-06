@@ -29,15 +29,19 @@ namespace UnityModule.AnimationEventDispatcher {
         /// <summary>
         /// アニメーション開始を表す AnimationEvent を Dispatch する
         /// </summary>
-        public void DispatchBegin() {
-            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_BEGIN});
+        /// <param name="animationEvent">Inspector で設定する情報を含んだ AnimationEvent</param>
+        public void DispatchBegin(AnimationEvent animationEvent) {
+            animationEvent.stringParameter = ANIMATION_EVENT_NAME_BEGIN;
+            this.StreamAnimationEvent.OnNext(animationEvent);
         }
 
         /// <summary>
         /// アニメーション終了を表す AnimationEvent を Dispatch する
         /// </summary>
-        public void DispatchEnd() {
-            this.StreamAnimationEvent.OnNext(new AnimationEvent() { stringParameter = ANIMATION_EVENT_NAME_END});
+        /// <param name="animationEvent">Inspector で設定する情報を含んだ AnimationEvent</param>
+        public void DispatchEnd(AnimationEvent animationEvent) {
+            animationEvent.stringParameter = ANIMATION_EVENT_NAME_END;
+            this.StreamAnimationEvent.OnNext(animationEvent);
         }
 
         /// <summary>
