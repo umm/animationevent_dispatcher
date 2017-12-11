@@ -53,11 +53,29 @@ namespace UnityModule.AnimationEventDispatcher {
         }
 
         /// <summary>
+        /// Dispatch されたアニメーション開始を表す AnimationEvent を UniRx ストリームとして返す
+        /// </summary>
+        /// <param name="animationClipName">Animation State 名</param>
+        /// <returns>AnimationEvent のストリーム</returns>
+        public IObservable<AnimationEvent> OnDispatchBeginAsObservable(string animationClipName) {
+            return this.OnDispatchBeginAsObservable().Where(x => x.animatorClipInfo.clip.name == animationClipName);
+        }
+
+        /// <summary>
         /// Dispatch されたアニメーション終了を表す AnimationEvent を UniRx ストリームとして返す
         /// </summary>
         /// <returns>AnimationEvent のストリーム</returns>
         public IObservable<AnimationEvent> OnDispatchEndAsObservable() {
             return this.OnDispatchAsObservable(ANIMATION_EVENT_NAME_END);
+        }
+
+        /// <summary>
+        /// Dispatch されたアニメーション終了を表す AnimationEvent を UniRx ストリームとして返す
+        /// </summary>
+        /// <param name="animationClipName">Animation State 名</param>
+        /// <returns>AnimationEvent のストリーム</returns>
+        public IObservable<AnimationEvent> OnDispatchEndAsObservable(string animationClipName) {
+            return this.OnDispatchEndAsObservable().Where(x => x.animatorClipInfo.clip.name == animationClipName);
         }
 
     }
