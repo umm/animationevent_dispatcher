@@ -131,8 +131,7 @@ namespace UnityModule.AnimationEventDispatcher {
                 return;
             }
             hasSetAudioListener = true;
-            AudioListener audioListener = FindObjectOfType<AudioListener>();
-            if (audioListener == default(AudioListener) && Camera.main != default(Camera)) {
+            if (FindObjectOfType<SingletonAudioListener>() == default(SingletonAudioListener) && FindObjectOfType<AudioListener>() == default(AudioListener) && Camera.main != default(Camera)) {
                 Camera.main.gameObject.AddComponent<AudioListener>();
             }
         }
