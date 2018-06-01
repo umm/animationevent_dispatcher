@@ -1,5 +1,7 @@
-﻿using UniRx;
+﻿using System;
+using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace UnityModule.AnimationEventDispatcher {
 
