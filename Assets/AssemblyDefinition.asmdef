@@ -1,0 +1,11 @@
+{
+  "name": "umm@animationevent_dispatcher",
+  "references": [
+    "umm@singleton_audiolistener",
+    "umm@unirx"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false
+}

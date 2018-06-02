@@ -6,6 +6,7 @@
 /[Ll]ibrary/
 /[Bb]uild/
 /UnityGenerated/
+/ProjectSettings/ProjectVersion.txt
 
 # ============= #
 # IDE generated #
@@ -51,6 +52,7 @@ Thumbs.db
 # ======== #
 # Optional #
 # ======== #
+/Assets/Plugins.meta
 /Assets/Plugins/Editor.meta
 
 # ====== #
