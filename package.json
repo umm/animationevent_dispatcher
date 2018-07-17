@@ -2,9 +2,9 @@
   "name": "@umm/animationevent_dispatcher",
   "version": "1.4.0",
   "description": "Dispatch AnimationEvent by Animation",
-  "homepage": "https://github.com/umm-projects/animationevent_dispatcher",
+  "homepage": "https://github.com/umm/animationevent_dispatcher",
   "bugs": {
-    "url": "https://github.com/umm-projects/animationevent_dispatcher/issues"
+    "url": "https://github.com/umm/animationevent_dispatcher/issues"
   },
   "scripts": {
     "umm:init": "umm-init",
@@ -22,16 +22,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:umm-projects/animationevent_dispatcher"
+    "url": "git@github.com:umm/animationevent_dispatcher"
   },
   "files": [
     "Assets",
     "scripts"
   ],
   "dependencies": {
-    "@umm/scripts": "umm-projects/scripts#^1.0.0",
-    "@umm/singleton_audiolistener": "umm-projects/singleton_audiolistener#^1.0.0",
-    "@umm/unirx": "umm-projects/unirx#^2.0.0"
+    "@umm/scripts": "umm/scripts#^1.0.0",
+    "@umm/singleton_audiolistener": "umm/singleton_audiolistener#^1.0.0",
+    "@umm/unirx": "umm/unirx#^2.0.0"
   },
   "devDependencies": {},
   "optionalDependencies": {}
