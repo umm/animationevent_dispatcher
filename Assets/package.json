@@ -1,0 +1,23 @@
+{
+  "name": "dev.upm-packages.animationevent-dispatcher",
+  "displayName": "AnimationEvent Dispatcher",
+  "version": "1.5.0",
+  "unity": "2019.3",
+  "description": "Dispatch AnimationEvent by Animation",
+  "author": {
+    "name": "Tetsuya Mori",
+    "url": "https://me.monry.dev/",
+    "email": "monry84@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [""],
+  "category": "",
+  "dependencies": {
+    "com.stevevermeulen.extenject": "9.1.0-5",
+    "jp.cysharp.unirx": "7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umm/animationevent_dispatcher"
+  }
+}
