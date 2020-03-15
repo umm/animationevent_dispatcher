@@ -10,7 +10,9 @@
     "email": "monry84@gmail.com"
   },
   "license": "MIT",
-  "keywords": [""],
+  "keywords": [
+    ""
+  ],
   "category": "",
   "dependencies": {
     "com.stevevermeulen.extenject": "9.1.0-5",
