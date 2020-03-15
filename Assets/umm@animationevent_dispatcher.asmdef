@@ -1,11 +1,16 @@
 {
-  "name": "umm@animationevent_dispatcher",
-  "references": [
-    "umm@singleton_audiolistener",
-    "umm@unirx"
-  ],
-  "optionalUnityReferences": [],
-  "includePlatforms": [],
-  "excludePlatforms": [],
-  "allowUnsafeCode": false
+    "name": "umm@animationevent_dispatcher",
+    "references": [
+        "GUID:4b8a1555cc6da4746b8077a3c858f221",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

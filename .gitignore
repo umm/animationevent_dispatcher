@@ -5,7 +5,9 @@
 /[Oo]bj/
 /[Ll]ibrary/
 /[Bb]uild/
+/[Ll]ogs/
 /UnityGenerated/
+# Library should not freeze version, it should be written in README.
 /ProjectSettings/ProjectVersion.txt
 
 # ============= #
@@ -13,20 +15,21 @@
 # ============= #
 # MonoDevelop / VisualStudio
 /ExportedObj/
-*.svd
-*.userprefs
-*.csproj
-*.pidb
-*.suo
-*.sln
-*.user
-*.unityproj
-*.booproj
+/*.svd
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln
+/*.user
+/*.unityproj
+/*.booproj
 # Sublime Text
-*.sublime-*
+/*.sublime-*
 # Visual Studio Code
-.vscode/
+/.vscode/
 # IntelliJ Rider
+/.idea/
 /Assets/Plugins/Editor/JetBrains/
 /Assets/Plugins/Editor/JetBrains.meta
 
