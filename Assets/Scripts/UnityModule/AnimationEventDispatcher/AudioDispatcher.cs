@@ -90,6 +90,15 @@ namespace UnityModule.AnimationEventDispatcher {
         }
 
         /// <summary>
+        /// Play() へのエリアス。
+        /// </summary>
+        /// <remarks>主に SimpleAnimation 等にある Play() メソッドとの重複を避けるための Play() へのエリアス</remarks>
+        /// <param name="audioClip">再生対象の AudioClip</param>
+        public void PlayAudioClip(AudioClip audioClip) {
+            this.Play(audioClip);
+        }
+
+        /// <summary>
         /// ループ再生する
         /// </summary>
         /// <remarks>AnimationEvent として呼び出されることを想定している</remarks>
